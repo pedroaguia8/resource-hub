@@ -5,9 +5,9 @@ server:
 
 spring:
   datasource:
-    password:
-    url: jbdc:postgresql://localhost:5432/resurcehub
-    username:
+    password: ${RESOURCEHUB_POSTGRES_PASSWORD}
+    url: jdbc:postgresql://localhost:5432/resourcehub
+    username: ${RESOURCEHUB_POSTGRES_USERNAME}
   jpa:
     hibernate:
       ddl-auto: create-drop
@@ -16,4 +16,21 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
         show_sql: true
+  mail:
+    host: localhost
+    port: 1025
+    username: hello
+    password: hello
+
+    properties:
+      mail:
+        smtp:
+          ssl:
+            trust: "*"
+          auth: true
+          starttls:
+            enable: true
+          connectiontimeout: 5000
+          timeout: 3000
+          writetimeout: 5000
 
